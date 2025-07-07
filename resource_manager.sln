@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resource_manager", "resource_manager.csproj", "{CE90A393-7E85-4999-9D88-E8FCB33A7B50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE90A393-7E85-4999-9D88-E8FCB33A7B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE90A393-7E85-4999-9D88-E8FCB33A7B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE90A393-7E85-4999-9D88-E8FCB33A7B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE90A393-7E85-4999-9D88-E8FCB33A7B50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
