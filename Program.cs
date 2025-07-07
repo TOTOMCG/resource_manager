@@ -8,6 +8,7 @@
 
         int id1 = resourceManager.Load("/assets/cool_text1.txt");
         int id2 = resourceManager.Load("/assets/cool_text2.txt");
+        int id5 = resourceManager.Load("/assets/cool_text1.txt");
         int id3 = resourceManager.Load("fake");
 
         if (resourceManager.Has(id1))

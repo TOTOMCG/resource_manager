@@ -1,6 +1,7 @@
 ﻿public class ResourceManager(string path)
 {
     private Dictionary<int, (byte[], string)> _resources = new(); // Храним два значения по одному ключу
+    private Dictionary<string, int> _pathId = new();
     private int _nextId = 1;
     private string _initPath = path;
     
@@ -10,16 +11,23 @@
     public int Load(string path)
     {
         string completePath = _initPath + path;
+        
         if (!File.Exists(completePath))
         {
             Console.WriteLine($"Файл не найден: {completePath}");
             return -1;
         }
 
+        if (_pathId.ContainsKey(path))
+        {
+            return _pathId[path];
+        }
+
         byte[] fileData = File.ReadAllBytes(completePath); // Реальная загрузка файла в память
 
         int id = _nextId++;
         _resources[id] = (fileData, completePath);
+        _pathId[path] = id;
 
         Console.WriteLine($"Загружен ресурс: {completePath} с ID: {id}");
         return id;
@@ -51,6 +59,7 @@
     {
         if (_resources.ContainsKey(id))
         {
+            _pathId.Remove(_resources[id].Item2);
             _resources.Remove(id);
         }
         else
@@ -102,6 +111,7 @@
     public void UnloadAll()
     {
         _resources.Clear();
+        _pathId.Clear();
         Console.WriteLine("Все ресурсы успешно выгружены.");
         
         GC.Collect(); // Должно освободить память
