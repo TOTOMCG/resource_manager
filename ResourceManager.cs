@@ -101,10 +101,9 @@
     /// </summary>
     public void UnloadAll()
     {
-        foreach (KeyValuePair<int, (byte[], string)> resource in _resources)
-        {
-            Unload(resource.Key);
-        }
+        _resources.Clear();
         Console.WriteLine("Все ресурсы успешно выгружены.");
+        
+        GC.Collect(); // Должно освободить память
     }
 }
